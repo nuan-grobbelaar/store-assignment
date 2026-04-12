@@ -4,7 +4,7 @@ target/
 
 # Git
 .git
-.gitignore
+../.gitignore
 
 # IDE
 .idea/
