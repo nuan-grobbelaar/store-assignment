@@ -1,0 +1,105 @@
+// ============================================
+// RESPONSIVE DESIGN MIXINS
+// ============================================
+
+@mixin respond-to($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// Shorthand media query mixins
+@mixin sm {
+  @include respond-to('sm') {
+    @content;
+  }
+}
+
+@mixin md {
+  @include respond-to('md') {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include respond-to('lg') {
+    @content;
+  }
+}
+
+@mixin xl {
+  @include respond-to('xl') {
+    @content;
+  }
+}
+
+// ============================================
+// FLEX & GRID UTILITIES
+// ============================================
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// ============================================
+// TYPOGRAPHY MIXINS
+// ============================================
+
+@mixin heading-base {
+  font-family: $font-heading;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+@mixin h1-style {
+  @include heading-base;
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: map-get($spacing, 32) 0;
+
+  @include lg {
+    font-size: 36px;
+    margin: map-get($spacing, 20) 0;
+  }
+}
+
+@mixin h2-style {
+  @include heading-base;
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 map-get($spacing, 8);
+
+  @include lg {
+    font-size: 20px;
+  }
+}
+
+// ============================================
+// COLOR UTILITIES
+// ============================================
+
+@function color($color-name) {
+  @return var(--#{$color-name});
+}
+
+// ============================================
+// RESET MIXINS
+// ============================================
+
+@mixin reset-margin {
+  margin: 0;
+}
+
+@mixin reset-padding {
+  padding: 0;
+}
+

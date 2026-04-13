@@ -1,0 +1,88 @@
+// ============================================
+// COLOR PALETTE
+// ============================================
+
+// Light theme colors
+$colors-light: (
+  text: #6b6375,
+  text-heading: #08060d,
+  bg: #fff,
+  border: #e5e4e7,
+  code-bg: #f4f3ec,
+  accent: #aa3bff,
+  accent-bg: rgba(170, 59, 255, 0.1),
+  accent-border: rgba(170, 59, 255, 0.5),
+  social-bg: rgba(244, 243, 236, 0.5),
+);
+
+// Dark theme colors
+$colors-dark: (
+  text: #9ca3af,
+  text-heading: #f3f4f6,
+  bg: #16171d,
+  border: #2e303a,
+  code-bg: #1f2028,
+  accent: #c084fc,
+  accent-bg: rgba(192, 132, 252, 0.15),
+  accent-border: rgba(192, 132, 252, 0.5),
+  social-bg: rgba(47, 48, 58, 0.5),
+);
+
+// ============================================
+// TYPOGRAPHY
+// ============================================
+
+$font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+$font-heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+$font-mono: ui-monospace, Consolas, monospace;
+
+$font-size-base: 18px;
+$line-height-base: 1.45;
+$letter-spacing-base: 0.18px;
+
+// ============================================
+// SPACING
+// ============================================
+
+$spacing: (
+  0: 0,
+  2: 2px,
+  4: 4px,
+  6: 6px,
+  8: 8px,
+  12: 12px,
+  16: 16px,
+  20: 20px,
+  24: 24px,
+  32: 32px,
+  36: 36px,
+  40: 40px,
+  56: 56px,
+);
+
+$gap-grid: map-get($spacing, 20);
+
+// ============================================
+// BREAKPOINTS
+// ============================================
+
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+// ============================================
+// CONTAINER
+// ============================================
+
+$container-max-width: 1126px;
+
+// ============================================
+// SHADOWS
+// ============================================
+
+$shadow-light: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+$shadow-dark: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+
