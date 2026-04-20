@@ -1,12 +1,19 @@
 import type { Product } from "../hooks/useProducts.ts";
+import { useCart } from "../context/CartContext.tsx";
 
 interface ProductCardProps {
   product: Product;
 }
 
 function ProductCard({ product }: ProductCardProps) {
+  const { addToCart } = useCart();
+
   return (
-    <div className="productCard" key={product.id}>
+    <div
+      className="productCard"
+      key={product.id}
+      onClick={() => addToCart(product)}
+    >
       <div className="productImage">
         <img src={product.imageUrl} alt={product.name} />
       </div>

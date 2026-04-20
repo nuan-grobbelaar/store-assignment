@@ -1,4 +1,35 @@
 // ============================================
+// LAYOUT: NAVBAR
+// ============================================
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 map-get($spacing, 24);
+  height: 56px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-heading);
+  }
+
+  &__cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--text-heading);
+  }
+}
+
+// ============================================
 // LAYOUT: ROOT CONTAINER
 // ============================================
 

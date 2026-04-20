@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'mixins';
+@import 'layout';
 
 // ============================================
 // COMPONENTS
@@ -94,4 +95,23 @@
       letter-spacing: 0.5px;
     }
   }
+}
+
+.cart-button {
+
+    &__counter {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        background: #ff0000;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        width: 18px;
+        height: 18px;
+//         border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
