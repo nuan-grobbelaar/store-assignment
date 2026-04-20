@@ -1,0 +1,26 @@
+@import 'variables';
+
+:root {
+  // Light theme (default)
+  --text: #{map-get($colors-light, text)};
+  --text-heading: #{map-get($colors-light, text-heading)};
+  --bg: #{map-get($colors-light, bg)};
+  --border: #{map-get($colors-light, border)};
+  --code-bg: #{map-get($colors-light, code-bg)};
+  --accent: #{map-get($colors-light, accent)};
+  --accent-bg: #{map-get($colors-light, accent-bg)};
+  --accent-border: #{map-get($colors-light, accent-border)};
+  --social-bg: #{map-get($colors-light, social-bg)};
+
+  @media (prefers-color-scheme: dark) {
+    --text: #{map-get($colors-dark, text)};
+    --text-heading: #{map-get($colors-dark, text-heading)};
+    --bg: #{map-get($colors-dark, bg)};
+    --border: #{map-get($colors-dark, border)};
+    --code-bg: #{map-get($colors-dark, code-bg)};
+    --accent: #{map-get($colors-dark, accent)};
+    --accent-bg: #{map-get($colors-dark, accent-bg)};
+    --accent-border: #{map-get($colors-dark, accent-border)};
+    --social-bg: #{map-get($colors-dark, social-bg)};
+  }
+}
