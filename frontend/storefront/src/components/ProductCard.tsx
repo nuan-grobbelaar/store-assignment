@@ -6,8 +6,15 @@ interface ProductCardProps {
 
 function ProductCard({ product }: ProductCardProps) {
   return (
-    <div key={product.id}>
-      <p>{product.name}</p>
+    <div className="productCard" key={product.id}>
+      <div className="productImage">
+        <img src={product.imageUrl} alt={product.name} />
+      </div>
+      <div className="productInfo">
+        <h3>{product.name}</h3>
+        {product.price && <p className="price">${product.price}</p>}
+        {product.brand && <p className="brand">{product.brand}</p>}
+      </div>
     </div>
   );
 }

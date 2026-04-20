@@ -6,6 +6,7 @@ function App() {
 
   return (
     <>
+      <h1 className="homeTitle">STORE.NUAN.DEV</h1>
       <ProductGrid products={products || []} isLoading={isLoading} error={error} />
     </>
   );

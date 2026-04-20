@@ -8,7 +8,6 @@
   }
 }
 
-// Shorthand media query mixins
 @mixin sm {
   @include respond-to('sm') {
     @content;
