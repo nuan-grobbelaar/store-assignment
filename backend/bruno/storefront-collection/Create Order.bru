@@ -1,0 +1,32 @@
+meta {
+  name: Create Order
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_url}}/{{orders_path}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "customerEmail": "user@example.com",
+    "items": [
+      {
+        "productId": 1,
+        "quantity": 2
+      },
+      {
+        "productId": 3,
+        "quantity": 1
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
