@@ -1,9 +1,11 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { useCart } from "../../context/CartContext.tsx";
 import CartItem from "./CartItem.tsx";
 import CartSidebarFooter from "./CartSidebarFooter.tsx";
 
 function CartSidebar() {
   const { items, isOpen, status, setStatus, closeCart, clearCart } = useCart();
+  const queryClient = useQueryClient();
 
   if (!isOpen) return null;
 
@@ -22,6 +24,7 @@ function CartSidebar() {
       });
       if (!res.ok) throw new Error();
       clearCart();
+      queryClient.invalidateQueries({ queryKey: ["orders"] });
       setStatus("success");
     } catch {
       setStatus("error");

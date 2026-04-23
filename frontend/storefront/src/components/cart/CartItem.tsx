@@ -16,7 +16,7 @@ function CartItem({ item }: CartItemProps) {
           {item.quantity} × ${item.product.price.toFixed(2)}
         </p>
       </div>
-      <p className="cart-sidebar__line-total">${(item.product.price * item.quantity).toFixed(2)}</p>
+      <p className="cart-sidebar__line-total">€{(item.product.price * item.quantity).toFixed(2)}</p>
     </li>
   );
 }

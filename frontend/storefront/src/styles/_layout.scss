@@ -29,6 +29,91 @@
     align-items: center;
     color: var(--text-heading);
   }
+
+  &__links {
+    display: flex;
+    gap: map-get($spacing, 16);
+  }
+
+  &__link {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+
+    &.active {
+      color: var(--text-heading);
+      font-weight: 600;
+    }
+  }
+}
+
+// ============================================
+// LAYOUT: ORDERS PAGE
+// ============================================
+
+.orders-page {
+  padding: map-get($spacing, 24);
+  text-align: left;
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: map-get($spacing, 16);
+    color: var(--text-heading);
+  }
+
+  &__status {
+    padding: map-get($spacing, 24);
+    text-align: center;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: map-get($spacing, 16);
+  }
+
+  &__item {
+    border: 1px solid var(--border);
+    padding: map-get($spacing, 16);
+    display: flex;
+    flex-direction: column;
+    gap: map-get($spacing, 8);
+  }
+
+  &__item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+  }
+
+  &__item-date {
+    color: var(--text-muted, var(--text));
+    font-weight: 400;
+    font-size: 0.875rem;
+  }
+
+  &__item-email {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-muted, var(--text));
+  }
+
+  &__item-lines {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  &__item-total {
+    font-weight: 600;
+    align-self: flex-end;
+  }
 }
 
 // ============================================

@@ -35,7 +35,7 @@ function ProductCard({ product }: ProductCardProps) {
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>
-        {product.price && <p className="price">${product.price}</p>}
+        {product.price && <p className="price">€{product.price}</p>}
         {product.brand && <p className="brand">{product.brand}</p>}
       </div>
     </div>
