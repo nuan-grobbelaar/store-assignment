@@ -66,6 +66,12 @@
     }
   }
 
+  .product-description {
+      padding: 5px;
+      padding-top: 25px;
+      margin-bottom: auto;
+  }
+
   .product-info {
     padding: 12px;
     display: flex;
@@ -109,13 +115,21 @@
         user-select: none;
         border-top: 1.5px solid #000;
 
+        .product-controls__buy {
+            flex: 1 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
         button {
             flex: 0 0 44px;
             padding: 0;
             background: #000;
             color: #fff;
             border: none;
-            font-family: 'Anton', system-ui, sans-serif;
+            font-family: 'Anton', sans-serif;
             font-size: 26px;
             line-height: 1;
             font-weight: 700;
@@ -138,7 +152,7 @@
             }
         }
 
-        span {
+        > span {
             flex: 1;
             display: flex;
             align-items: center;
@@ -208,6 +222,7 @@
         border-bottom: 1px solid var(--border);
 
         h2 {
+            font-family: 'Anton', sans-serif;
             margin: 0;
             font-size: 1rem;
             font-weight: 700;

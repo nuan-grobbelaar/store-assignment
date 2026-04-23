@@ -1,36 +1,24 @@
 import type { Product } from "../../hooks/useProducts.ts";
-import { useCart } from "../../context/CartContext.tsx";
+import { useState } from "react";
+import ProductControls from "./ProductControls.tsx";
 
 interface ProductCardProps {
   product: Product;
 }
 
 function ProductCard({ product }: ProductCardProps) {
-  const { addToCart, decrement, items } = useCart();
-  const quantity = items.find((i) => i.product.id === product.id)?.quantity ?? 0;
+  const [expand, setExpand] = useState(false);
 
   return (
-    <div className="product-card" onClick={() => addToCart(product)}>
+    <div className="product-card" onClick={() => setExpand((e) => !e)}>
       <div className="product-image">
-        <img src={product.imageUrl} alt={product.name} />
-        {quantity > 0 && (
-          <div className="product-controls" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              onClick={() => decrement(product)}
-              aria-label={`Remove one ${product.name}`}
-            >
-              −
-            </button>
-            <span aria-live="polite">{quantity}</span>
-            <button
-              type="button"
-              onClick={() => addToCart(product)}
-              aria-label={`Add another ${product.name}`}
-            >
-              +
-            </button>
-          </div>
+        {expand ? (
+          <>
+            <div className="product-description">{product.description}</div>
+            <ProductControls product={product} />
+          </>
+        ) : (
+          <img src={product.imageUrl} alt={product.name} />
         )}
       </div>
       <div className="product-info">
