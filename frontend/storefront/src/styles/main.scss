@@ -7,12 +7,12 @@
 // COMPONENTS
 // ============================================
 
-.homeTitle {
+.home-title {
     font-family: 'Anton';
     font-size: 58px;
  }
 
-.productGrid {
+.product-grid {
   display: grid;
   gap: 8px;
   padding: 4px;
@@ -36,7 +36,7 @@
   }
 }
 
-.productCard {
+.product-card {
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@
     transform: scale(1.02);
   }
 
-  .productImage {
+  .product-image {
     aspect-ratio: 1;
     overflow: hidden;
     display: flex;
@@ -56,6 +56,7 @@
     justify-content: center;
     border: 1.5px solid #000;
     background: #f5f5f5;
+    position: relative;
 
     img {
       width: 100%;
@@ -65,7 +66,7 @@
     }
   }
 
-  .productInfo {
+  .product-info {
     padding: 12px;
     display: flex;
     flex-direction: column;
@@ -96,6 +97,62 @@
       letter-spacing: 0.5px;
     }
   }
+
+    .product-controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: stretch;
+        height: 44px;
+        user-select: none;
+        border-top: 1.5px solid #000;
+
+        button {
+            flex: 0 0 44px;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            border: none;
+            font-family: 'Anton', system-ui, sans-serif;
+            font-size: 26px;
+            line-height: 1;
+            font-weight: 700;
+            cursor: pointer;
+            transition: none;
+
+            &:hover {
+                background: #fff;
+                color: #000;
+            }
+
+            &:active {
+                transform: translate(1px, 1px);
+            }
+
+            &:disabled {
+                background: #ccc;
+                color: #666;
+                cursor: not-allowed;
+            }
+        }
+
+        span {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: #000;
+            font-family: 'Anton', system-ui, sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            border-left: 1.5px solid #000;
+            border-right: 1.5px solid #000;
+        }
+    }
 }
 
 .cart-button {

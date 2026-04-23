@@ -9,7 +9,7 @@ interface ProductGridProps {
 
 function ProductGrid({ products, isLoading, error }: ProductGridProps) {
   return (
-    <div className="productGrid">
+    <div className="product-grid">
       {isLoading && <p>Loading products...</p>}
       {error && <p>Error loading products: {(error as Error).message}</p>}
       {products && products.length > 0

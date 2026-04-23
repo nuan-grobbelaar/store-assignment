@@ -9,6 +9,7 @@ export interface CartItem {
 interface CartContextValue {
   items: CartItem[];
   addToCart: (product: Product) => void;
+  decrement: (product: Product) => void;
   clearCart: () => void;
   isOpen: boolean;
   status: OrderStatus;
@@ -57,6 +58,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  const decrement = (product: Product) => {
+    setItems((prev) =>
+      prev
+        .map((i) => (i.product.id === product.id ? { ...i, quantity: i.quantity - 1 } : i))
+        .filter((i) => i.quantity > 0)
+    );
+  };
+
   const clearCart = () => setItems([]);
 
   return (
@@ -64,6 +73,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       value={{
         items,
         addToCart,
+        decrement,
         clearCart,
         isOpen,
         setStatus,
