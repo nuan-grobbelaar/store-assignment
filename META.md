@@ -33,8 +33,9 @@ Redux would be overkill here. Context + `localStorage` sync covers the requireme
 - **Real database.** Orders write to `orders.json` inside the container and vanish on rebuild. Swapping in PostgreSQL would fix that — the hexagonal architecture makes it a clean swap.
 - **Auth.** The orders page shows every order from every "user". JWT-based auth would let the frontend filter by the logged-in customer's email — `customerEmail` is already on the model, so it's half-done.
 - **Stock management.** Nothing stops you from ordering 9,000 of something. A real storefront would decrement stock on order and block purchases when sold out.
+- **Product details page.** The product card has quite limited space and the solution I went for to include the description isn't the best. A dedicated product page would let you show more info and a bigger image.
 - **Order status.** A status field (`pending → confirmed → shipped → delivered`) would make the orders page actually useful.
-- **Frontend search/filter UI.** The backend already supports search and category filtering via query params. The UI doesn't expose it yet.
+- **Frontend search/filter UI.** The backend already supports search and category filtering. The UI doesn't expose it yet.
 - **Better validation feedback.** The frontend handles loading and error states but leans on generic messages. Checkout in particular deserves more specific feedback.
 
 ---
@@ -46,7 +47,6 @@ Redux would be overkill here. Context + `localStorage` sync covers the requireme
 - **Orders lost on rebuild.** `orders.json` lives inside the container — `docker compose down` and back up means a fresh slate.
 - **No input validation on the backend.** The API trusts whatever the frontend sends. A production service would validate and sanitize.
 - **Cart Controls.** The store UI only supports adding items from the product listing. A real app would let you adjust quantities and remove items from the cart sidebar itself.
-
 
 ---
 
