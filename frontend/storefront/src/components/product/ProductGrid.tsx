@@ -1,4 +1,4 @@
-import type { Product } from "../hooks/useProducts.ts";
+import type { Product } from "../../hooks/useProducts.ts";
 import ProductCard from "./ProductCard.tsx";
 
 interface ProductGridProps {

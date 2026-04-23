@@ -1,5 +1,5 @@
-import { useCart } from "../context/CartContext.tsx";
-import CartIcon from "../icons/CartIcon.tsx";
+import { useCart } from "../../context/CartContext.tsx";
+import CartIcon from "../../icons/CartIcon.tsx";
 
 function CartButton() {
   const { items, openCart } = useCart();

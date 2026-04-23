@@ -1,5 +1,5 @@
-import type { Product } from "../hooks/useProducts.ts";
-import { useCart } from "../context/CartContext.tsx";
+import type { Product } from "../../hooks/useProducts.ts";
+import { useCart } from "../../context/CartContext.tsx";
 
 interface ProductCardProps {
   product: Product;

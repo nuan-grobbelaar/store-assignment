@@ -1,4 +1,4 @@
-import CartButton from "./CartButton.tsx";
+import CartButton from "../cart/CartButton.tsx";
 
 function Navbar() {
   return (

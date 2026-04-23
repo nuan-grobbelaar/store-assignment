@@ -1,7 +1,7 @@
 import { useProducts } from "./hooks/useProducts.ts";
-import ProductGrid from "./components/ProductGrid.tsx";
-import Navbar from "./components/Navbar.tsx";
-import CartSidebar from "./components/CartSidebar.tsx";
+import ProductGrid from "./components/product/ProductGrid.tsx";
+import Navbar from "./components/layout/Navbar.tsx";
+import CartSidebar from "./components/cart/CartSidebar.tsx";
 
 function App() {
   const { data: products, isLoading, error } = useProducts();
