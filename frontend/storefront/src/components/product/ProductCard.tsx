@@ -1,25 +1,16 @@
 import type { Product } from "../../hooks/useProducts.ts";
-import { useState } from "react";
-import ProductControls from "./ProductControls.tsx";
+import { useNavigate } from "react-router-dom";
 
 interface ProductCardProps {
   product: Product;
 }
 
 function ProductCard({ product }: ProductCardProps) {
-  const [expand, setExpand] = useState(false);
-
+  const navigate = useNavigate();
   return (
-    <div className="product-card" onClick={() => setExpand((e) => !e)}>
+    <div className="product-card" onClick={() => navigate(`/product/${product.id}`)}>
       <div className="product-image">
-        {expand ? (
-          <>
-            <div className="product-description">{product.description}</div>
-            <ProductControls product={product} />
-          </>
-        ) : (
-          <img src={product.imageUrl} alt={product.name} />
-        )}
+        <img src={product.imageUrl} alt={product.name} />
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>

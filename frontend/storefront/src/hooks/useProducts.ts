@@ -26,3 +26,17 @@ export const useProducts = () => {
   })
 }
 
+export const useProduct = (id: string | number | undefined) => {
+  return useQuery({
+    queryKey: ['product', id],
+    enabled: id !== undefined && id !== '',
+    queryFn: async (): Promise<Product> => {
+      const response = await fetch(`${API_BASE_URL}/${id}`)
+      if (!response.ok) {
+        throw new Error('Failed to fetch product')
+      }
+      return response.json()
+    },
+  })
+}
+
