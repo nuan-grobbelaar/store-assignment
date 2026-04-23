@@ -1,4 +1,5 @@
 import { useOrders } from "../hooks/useOrders.ts";
+import OrderCard from "../components/order/OrderCard.tsx";
 
 function OrdersPage() {
   const { data: orders, isLoading, error } = useOrders();
@@ -12,23 +13,7 @@ function OrdersPage() {
       <h2 className="orders-page__title">Your Orders</h2>
       <ul className="orders-page__list">
         {orders.map((order) => (
-          <li key={order.id} className="orders-page__item">
-            <header className="orders-page__item-header">
-              <span className="orders-page__item-id">Order #{order.id}</span>
-              <span className="orders-page__item-date">
-                {order.createdAt ? new Date(order.createdAt).toLocaleString() : ""}
-              </span>
-            </header>
-            <p className="orders-page__item-email">{order.customerEmail}</p>
-            <ul className="orders-page__item-lines">
-              {order.items.map((line) => (
-                <li key={line.productId}>
-                  {line.productName} &times; {line.quantity}
-                </li>
-              ))}
-            </ul>
-            <div className="orders-page__item-total">Total: €{order.total.toFixed(2)}</div>
-          </li>
+          <OrderCard key={order.id} order={order} />
         ))}
       </ul>
     </section>
