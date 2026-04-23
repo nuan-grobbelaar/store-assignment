@@ -11,7 +11,7 @@ export interface Product {
   imageUrl: string
 }
 
-const API_BASE_URL = 'http://localhost:8080/api/products'
+const API_BASE_URL = '/api/products'
 
 export const useProducts = () => {
   return useQuery({

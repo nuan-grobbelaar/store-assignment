@@ -14,7 +14,7 @@ export interface Order {
   createdAt: string;
 }
 
-const API_BASE_URL = "http://localhost:8080/api/orders";
+const API_BASE_URL = "/api/orders";
 
 export const useOrders = () => {
   return useQuery({

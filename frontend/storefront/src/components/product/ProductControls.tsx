@@ -18,7 +18,7 @@ function ProductControls({ product }: ProductControlsProps) {
           onClick={() => addToCart(product)}
           aria-label={`Add ${product.name} to cart`}
         >
-          <p>Buy!</p>
+          <p>Add to cart</p>
         </button>
       ) : (
         <>
