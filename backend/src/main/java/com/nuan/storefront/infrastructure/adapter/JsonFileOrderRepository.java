@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class JsonFileOrderRepository implements OrderRepositoryPort {
 
     private final ObjectMapper objectMapper;
@@ -22,7 +21,6 @@ public class JsonFileOrderRepository implements OrderRepositoryPort {
     public JsonFileOrderRepository(ObjectMapper objectMapper, String filePath) {
         this.objectMapper = objectMapper;
         this.file = new File(filePath);
-        log.info("ORDER STORE PATH: {}", this.file.getAbsolutePath());
         this.idSequence = new AtomicLong(nextId());
     }
 
@@ -47,12 +45,10 @@ public class JsonFileOrderRepository implements OrderRepositoryPort {
 
     @Override
     public synchronized Order save(Order order) {
-        log.info("Saving: {}", order);
         List<Order> orders = readAll();
         Order persisted = new Order(idSequence.getAndIncrement(), order.getCustomerEmail(), order.getItems(), order.getCreatedAt());
         orders.add(persisted);
         try {
-            log.info("Orders: {}", orders);
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, orders);
         } catch (IOException e) {
             throw new RuntimeException("Failed to write orders to " + file.getPath(), e);

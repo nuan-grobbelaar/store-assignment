@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Slf4j
 public class CreateOrderUseCase {
 
     private final OrderRepositoryPort orderRepository;
@@ -26,11 +25,9 @@ public class CreateOrderUseCase {
     public record ItemRequest(Long productId, int quantity) {}
 
     public Order execute(String customerEmail, List<ItemRequest> itemRequests) {
-        log.info(""+1);
         Map<Long, Product> products = productRepository.findAll()
                 .stream()
                 .collect(Collectors.toMap(Product::getId, p -> p));
-        log.info(""+2);
         List<OrderItem> items = itemRequests.stream().map(req -> {
             Product product = products.get(req.productId());
             if (product == null) {
@@ -38,10 +35,8 @@ public class CreateOrderUseCase {
             }
             return new OrderItem(product.getId(), product.getName(), product.getPrice(), req.quantity());
         }).toList();
-        log.info(""+3);
 
         Order order = new Order(null, customerEmail, items, Instant.now());
-        log.info(""+4);
         return orderRepository.save(order);
     }
 }

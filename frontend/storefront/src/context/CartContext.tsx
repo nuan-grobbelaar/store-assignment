@@ -66,7 +66,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   };
 
-  const clearCart = () => setItems([]);
+  const clearCart = () => {
+    setItems([]);
+    setIsOpen(false);
+  };
 
   return (
     <CartContext.Provider

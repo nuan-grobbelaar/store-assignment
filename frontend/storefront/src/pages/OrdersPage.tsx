@@ -23,7 +23,7 @@ function OrdersPage() {
             <ul className="orders-page__item-lines">
               {order.items.map((line) => (
                 <li key={line.productId}>
-                  Product #{line.productId} &times; {line.quantity}
+                  {line.productName} &times; {line.quantity}
                 </li>
               ))}
             </ul>

@@ -32,19 +32,16 @@
 
   &__links {
     display: flex;
-    gap: map-get($spacing, 16);
+    margin-left: auto;
+    margin-right: 16px;
   }
 
   &__link {
-    color: var(--text);
+    color: var(--text-heading);
     text-decoration: none;
     font-size: 0.875rem;
+    font-weight: 600;
     letter-spacing: 0.04em;
-
-    &.active {
-      color: var(--text-heading);
-      font-weight: 600;
-    }
   }
 }
 

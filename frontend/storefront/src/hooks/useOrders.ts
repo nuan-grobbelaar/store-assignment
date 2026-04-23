@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export interface OrderItem {
   productId: number;
+  productName: string;
   quantity: number;
 }
 

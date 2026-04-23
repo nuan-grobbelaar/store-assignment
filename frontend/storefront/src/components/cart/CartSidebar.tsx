@@ -1,4 +1,5 @@
 import { useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext.tsx";
 import CartItem from "./CartItem.tsx";
 import CartSidebarFooter from "./CartSidebarFooter.tsx";
@@ -6,6 +7,7 @@ import CartSidebarFooter from "./CartSidebarFooter.tsx";
 function CartSidebar() {
   const { items, isOpen, status, setStatus, closeCart, clearCart } = useCart();
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   if (!isOpen) return null;
 
@@ -24,8 +26,9 @@ function CartSidebar() {
       });
       if (!res.ok) throw new Error();
       clearCart();
-      queryClient.invalidateQueries({ queryKey: ["orders"] });
+      await queryClient.invalidateQueries({ queryKey: ["orders"] });
       setStatus("success");
+      navigate("/orders");
     } catch {
       setStatus("error");
     }

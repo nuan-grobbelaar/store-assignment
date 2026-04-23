@@ -47,7 +47,7 @@ public class OrderController {
 
     private OrderResponseDTO toResponse(Order order) {
         List<OrderItemDTO> itemDTOs = order.getItems().stream()
-                .map(i -> new OrderItemDTO(i.getProductId(), i.getQuantity()))
+                .map(i -> new OrderItemDTO(i.getProductId(), i.getProductName(), i.getQuantity()))
                 .toList();
         return new OrderResponseDTO(order.getId(), order.getCustomerEmail(), itemDTOs, order.total(), order.getCreatedAt());
     }

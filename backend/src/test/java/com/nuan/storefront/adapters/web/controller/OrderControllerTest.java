@@ -78,7 +78,7 @@ class OrderControllerTest {
         when(createOrderUseCase.execute(anyString(), any())).thenReturn(savedOrder);
 
         OrderRequestDTO req = new OrderRequestDTO("buyer@example.com",
-                List.of(new OrderItemDTO(1L, 2)));
+                List.of(new OrderItemDTO(1L, "Laptop", 2)));
 
         mockMvc.perform(post("/api/orders")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -97,7 +97,7 @@ class OrderControllerTest {
                 .thenThrow(new IllegalArgumentException("Product not found: 999"));
 
         OrderRequestDTO req = new OrderRequestDTO("buyer@example.com",
-                List.of(new OrderItemDTO(999L, 1)));
+                List.of(new OrderItemDTO(999L, "", 1)));
 
         mockMvc.perform(post("/api/orders")
                         .contentType(MediaType.APPLICATION_JSON)

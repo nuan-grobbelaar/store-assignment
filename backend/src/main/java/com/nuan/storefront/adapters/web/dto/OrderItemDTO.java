@@ -13,6 +13,8 @@ public class OrderItemDTO {
     @NotNull
     private Long productId;
 
+    private String productName;
+
     @NotNull
     @Min(1)
     private Integer quantity;
