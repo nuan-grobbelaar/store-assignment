@@ -2,30 +2,12 @@
 // COLOR PALETTE
 // ============================================
 
-// Light theme colors
 $colors-light: (
   text: #6b6375,
   text-heading: #08060d,
   bg: #fff,
   border: #e5e4e7,
-  code-bg: #f4f3ec,
-  accent: #aa3bff,
-  accent-bg: rgba(170, 59, 255, 0.1),
-  accent-border: rgba(170, 59, 255, 0.5),
-  social-bg: rgba(244, 243, 236, 0.5),
 );
-
-// ============================================
-// TYPOGRAPHY
-// ============================================
-
-$font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-$font-heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-$font-mono: ui-monospace, Consolas, monospace;
-
-$font-size-base: 18px;
-$line-height-base: 1.45;
-$letter-spacing-base: 0.18px;
 
 // ============================================
 // SPACING
@@ -47,8 +29,6 @@ $spacing: (
   56: 56px,
 );
 
-$gap-grid: map-get($spacing, 20);
-
 // ============================================
 // BREAKPOINTS
 // ============================================
@@ -65,11 +45,3 @@ $breakpoints: (
 // ============================================
 
 $container-max-width: 1126px;
-
-// ============================================
-// SHADOWS
-// ============================================
-
-$shadow-light: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-$shadow-dark: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-

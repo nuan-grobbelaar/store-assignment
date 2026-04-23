@@ -1,16 +1,11 @@
-@import 'variables';
-@import 'mixins';
-@import 'base';
-@import 'layout';
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'base';
+@use 'layout';
 
 // ============================================
 // COMPONENTS
 // ============================================
-
-.home-title {
-    font-family: 'Anton';
-    font-size: 58px;
- }
 
 .product-grid {
   display: grid;
@@ -64,12 +59,6 @@
       object-fit: contain;
       object-position: center;
     }
-  }
-
-  .product-description {
-      padding: 5px;
-      padding-top: 25px;
-      margin-bottom: auto;
   }
 
   .product-info {

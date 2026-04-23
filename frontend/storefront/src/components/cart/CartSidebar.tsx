@@ -24,7 +24,7 @@ function CartSidebar() {
           items: items.map((i) => ({ productId: i.product.id, quantity: i.quantity })),
         }),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error(res.statusText);
       clearCart();
       await queryClient.invalidateQueries({ queryKey: ["orders"] });
       setStatus("success");

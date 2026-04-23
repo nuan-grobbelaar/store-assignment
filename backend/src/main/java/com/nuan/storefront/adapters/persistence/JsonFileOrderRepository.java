@@ -1,4 +1,4 @@
-package com.nuan.storefront.infrastructure.adapter;
+package com.nuan.storefront.adapters.persistence;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nuan.storefront.domain.entity.Order;
@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-import lombok.extern.slf4j.Slf4j;
 
 public class JsonFileOrderRepository implements OrderRepositoryPort {
 

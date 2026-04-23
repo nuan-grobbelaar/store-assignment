@@ -5,9 +5,9 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.nuan.storefront.adapters.web.dto.OrderItemDTO;
 import com.nuan.storefront.adapters.web.dto.OrderRequestDTO;
 import com.nuan.storefront.application.usecases.CreateOrderUseCase;
+import com.nuan.storefront.application.usecases.GetOrdersUseCase;
 import com.nuan.storefront.domain.entity.Order;
 import com.nuan.storefront.domain.entity.OrderItem;
-import com.nuan.storefront.domain.port.OrderRepositoryPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,7 +36,7 @@ class OrderControllerTest {
     private CreateOrderUseCase createOrderUseCase;
 
     @Mock
-    private OrderRepositoryPort orderRepository;
+    private GetOrdersUseCase getOrdersUseCase;
 
     @InjectMocks
     private OrderController controller;
@@ -56,7 +56,7 @@ class OrderControllerTest {
                 List.of(new OrderItem(1L, "Laptop", 1500.0, 2)),
                 Instant.parse("2026-04-22T10:00:00Z"));
 
-        when(orderRepository.findAll()).thenReturn(List.of(order));
+        when(getOrdersUseCase.execute()).thenReturn(List.of(order));
 
         mockMvc.perform(get("/api/orders"))
                 .andExpect(status().isOk())

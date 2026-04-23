@@ -4,8 +4,8 @@ import com.nuan.storefront.adapters.web.dto.OrderItemDTO;
 import com.nuan.storefront.adapters.web.dto.OrderRequestDTO;
 import com.nuan.storefront.adapters.web.dto.OrderResponseDTO;
 import com.nuan.storefront.application.usecases.CreateOrderUseCase;
+import com.nuan.storefront.application.usecases.GetOrdersUseCase;
 import com.nuan.storefront.domain.entity.Order;
-import com.nuan.storefront.domain.port.OrderRepositoryPort;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,20 +15,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class OrderController {
 
     private final CreateOrderUseCase createOrderUseCase;
-    private final OrderRepositoryPort orderRepository;
+    private final GetOrdersUseCase getOrdersUseCase;
 
-    public OrderController(CreateOrderUseCase createOrderUseCase, OrderRepositoryPort orderRepository) {
+    public OrderController(CreateOrderUseCase createOrderUseCase, GetOrdersUseCase getOrdersUseCase) {
         this.createOrderUseCase = createOrderUseCase;
-        this.orderRepository = orderRepository;
+        this.getOrdersUseCase = getOrdersUseCase;
     }
 
     @GetMapping
     public List<OrderResponseDTO> getOrders() {
-        return orderRepository.findAll().stream().map(this::toResponse).toList();
+        return getOrdersUseCase.execute().stream().map(this::toResponse).toList();
     }
 
     @PostMapping

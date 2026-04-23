@@ -1,13 +1,8 @@
-@import 'variables';
+@use 'variables' as *;
 
 :root {
   --text: #{map-get($colors-light, text)};
   --text-heading: #{map-get($colors-light, text-heading)};
   --bg: #{map-get($colors-light, bg)};
   --border: #{map-get($colors-light, border)};
-  --code-bg: #{map-get($colors-light, code-bg)};
-  --accent: #{map-get($colors-light, accent)};
-  --accent-bg: #{map-get($colors-light, accent-bg)};
-  --accent-border: #{map-get($colors-light, accent-border)};
-  --social-bg: #{map-get($colors-light, social-bg)};
 }

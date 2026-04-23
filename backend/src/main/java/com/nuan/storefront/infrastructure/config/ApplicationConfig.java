@@ -4,10 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.nuan.storefront.application.usecases.CreateOrderUseCase;
+import com.nuan.storefront.application.usecases.GetOrdersUseCase;
 import com.nuan.storefront.application.usecases.GetProductsUseCase;
 import com.nuan.storefront.domain.port.OrderRepositoryPort;
 import com.nuan.storefront.domain.port.ProductRepositoryPort;
-import com.nuan.storefront.infrastructure.adapter.JsonFileOrderRepository;
+import com.nuan.storefront.adapters.persistence.JsonFileOrderRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -42,6 +43,11 @@ public class ApplicationConfig {
     @Bean
     public CreateOrderUseCase createOrderUseCase(OrderRepositoryPort orderRepository, ProductRepositoryPort productRepository) {
         return new CreateOrderUseCase(orderRepository, productRepository);
+    }
+
+    @Bean
+    public GetOrdersUseCase getOrdersUseCase(OrderRepositoryPort orderRepository) {
+        return new GetOrdersUseCase(orderRepository);
     }
 }
 

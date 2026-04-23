@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProductController {
     private final GetProductsUseCase getProductsUseCase;
 
@@ -66,7 +65,7 @@ public class ProductController {
      * GET /api/products/search/{searchTerm} - Search for products
      */
     @GetMapping("/search/{searchTerm}")
-    public ResponseEntity<List<ProductDTO>> getProductById(@PathVariable String searchTerm) {
+    public ResponseEntity<List<ProductDTO>> getProductBySearchTerm(@PathVariable String searchTerm) {
         List<Product> products = getProductsUseCase.executeSearch(searchTerm);
         List<ProductDTO> productDTOs = products.stream()
                 .map(this::convertToDTO)

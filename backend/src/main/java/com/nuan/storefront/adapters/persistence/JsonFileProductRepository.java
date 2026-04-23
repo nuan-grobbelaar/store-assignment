@@ -1,4 +1,4 @@
-package com.nuan.storefront.infrastructure.adapter;
+package com.nuan.storefront.adapters.persistence;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nuan.storefront.domain.entity.Product;
